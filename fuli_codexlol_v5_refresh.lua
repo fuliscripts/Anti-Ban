@@ -106,13 +106,13 @@ addToggle("StunStick Aura", aura,
     end
 )
 
--- Kill Rake
-local killRake = {active = false}
-addToggle("Kill Rake (loop)", killRake,
+-- Kill Rastrillo
+local killRastrillo = {active = false}
+addToggle("Kill Rastrillo (loop)", killRastrillo,
     function()
-        killRake.loop = RunService.RenderStepped:Connect(function()
+        killRastrillo.loop = RunService.RenderStepped:Connect(function()
             for _, m in pairs(Workspace:GetDescendants()) do
-                if m:IsA("Model") and m.Name:lower():find("rake") then
+                if m:IsA("Model") and m.Name:lower():find("rastrillo") then
                     local h = m:FindFirstChildOfClass("Humanoid")
                     if h and h.Health > 0 then
                         h:TakeDamage(9999)
@@ -122,7 +122,7 @@ addToggle("Kill Rake (loop)", killRake,
         end)
     end,
     function()
-        if killRake.loop then killRake.loop:Disconnect() end
+        if killRastrillo.loop then killRastrillo.loop:Disconnect() end
     end
 )
 
